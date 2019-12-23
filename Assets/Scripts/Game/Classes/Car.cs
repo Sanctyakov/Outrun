@@ -8,27 +8,16 @@ public class Car : MonoBehaviour
 
     public int currentLane, targetLane;
 
-    public void SetUp()
+    public void GetCurrentLane()
     {
-        speed = GameControl.MaxSpeed / 5;
-        rotationSpeed = speed / 2;
-
-        currentLane = GetCurrentLane();
-    }
-
-    public int GetCurrentLane()
-    {
-        int currentLane = 0;
-
         for (int i = 0; i < GameControl.Lanes.Length; i++)
         {
             if (transform.position.x == GameControl.Lanes[i].position.x)
             {
                 currentLane = i;
+                break;
             }
         }
-
-        return currentLane;
     }
 
     public Vector3 Translate()

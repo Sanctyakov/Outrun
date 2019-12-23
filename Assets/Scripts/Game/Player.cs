@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        c = gameObject.AddComponent<Car>() as Car; //Adds our new car as a Unity Component.
+        c = GetComponent<Car>(); //Finds our new car from Unity Components.
 
-        c.SetUp(); //Set up the car's parameters.
+        c.GetCurrentLane(); //Get the car's current lane as soon as it spawns.
 
         rb = GetComponent<Rigidbody>();
     }
@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
         {
             if (c.currentLane > 0) //Player cannot bump into the road's borders (nor exceed array's size).
             {
-                c.moving = true;
-
                 c.targetLane = c.currentLane - 1;
+
+                c.moving = true;
             }
         }
     }
@@ -61,9 +61,9 @@ public class Player : MonoBehaviour
         {
             if (c.currentLane < GameControl.Lanes.Length - 1) //Player cannot bump into the road's borders (nor exceed array's size).
             {
-                c.moving = true;
-
                 c.targetLane = c.currentLane + 1;
+
+                c.moving = true;
             }
         }
     }

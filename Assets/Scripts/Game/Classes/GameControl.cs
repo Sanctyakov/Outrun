@@ -6,25 +6,25 @@ public static class GameControl //A static class that communicates with the Game
 
 	public static void SetGameController(GameController gC)
 	{
-		gameController = gC;
+		gameController = gC; //The Game Controller script is set.
 	}
 
 	public static Transform[] Lanes
 	{
-		get { return gameController.lanes; }
+		get { return gameController.lanes; } //The lanes are provided via game object reference in the editor.
 	}
 
 	public static float Speed
 	{
-		get { return gameController.Speed; }
+		get { return gameController.speed; } //The speed at which the world will travel backwards (it peaks at maxSpeed).
 	}
 
 	public static float MaxSpeed
 	{
-		get { return gameController.MaxSpeed; }
+		get { return gameController.maxSpeed; } //The maximum speed the world will accelerate to.
 	}
 
-	public static void UpdateGold()
+	public static void UpdateGold() //Public methods.
 	{
 		gameController.UpdateGold();
 	}

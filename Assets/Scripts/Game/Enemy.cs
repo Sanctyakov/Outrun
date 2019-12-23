@@ -5,11 +5,13 @@ public class Enemy : MonoBehaviour
 {
     private Car c; //Every enemy has a car.
 
+    public float minSwitchLaneTime, maxSwitchLaneTime;
+
     void Start()
     {
-        c = gameObject.AddComponent<Car>() as Car; //Adds our new car as a Unity Component.
+        c = GetComponent<Car>(); //Adds our new car as a Unity Component.
 
-        c.SetUp(); //Set up the car's parameters.
+        c.GetCurrentLane(); //Get the car's current lane as soon as it spawns.
 
         StartCoroutine(RandomSwitchLanes()); //Enemies will switch lanes at random directions and random intervals.
     }
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour
 
             c.moving = true;
 
-            float switchLaneTime = Random.Range(2, 5);
+            float switchLaneTime = Random.Range(minSwitchLaneTime, maxSwitchLaneTime);
 
             if (c.currentLane == 0) //Enemies won't bump into the road's borders.
             {

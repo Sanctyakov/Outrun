@@ -5,25 +5,14 @@ using System.IO;
 using System.Collections;
 
 //This script will be the first amongst all our custom scripts to be executed, as defined by project settings.
+//It is to be noted that no scripts will directly communicate with this one, but with a static class that will act as its proxy,
+//having read only access to its variables.
 
 public class GameController : MonoBehaviour
 {
     #region Variable declarations
 
-    public float acceleration, maxSpeed, goldSpawnTimeMin, goldSpawnTimeMax, carSpawnTimeMin, carSpawnTimeMax; //Variables we can set from the inspector to vary the game's difficulty
-
-    private float speed; //The speed at which the world will travel backwards (it peaks at maxSpeed).
-
-    public float Speed //Public properties that can only be read, never written.
-    {
-        get { return speed; }
-    }
-
-    public float MaxSpeed
-    {
-        get { return maxSpeed; }
-
-    }
+    public float speed, acceleration, maxSpeed, goldSpawnTimeMin, goldSpawnTimeMax, carSpawnTimeMin, carSpawnTimeMax; //Variables we can set from the inspector to vary the game's difficulty
 
     public Text speedText, goldCounterText, bestCounterText, newBestText, newBestCounterText; //UI texts.
 
