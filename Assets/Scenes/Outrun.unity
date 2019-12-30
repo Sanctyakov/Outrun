@@ -574,7 +574,7 @@ MonoBehaviour:
   goldSpawnTimeMin: 1
   goldSpawnTimeMax: 3
   carSpawnTimeMin: 2
-  carSpawnTimeMax: 5
+  carSpawnTimeMax: 4
   speedText: {fileID: 1271902912}
   goldCounterText: {fileID: 1787768045}
   bestCounterText: {fileID: 961951159}

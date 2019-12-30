@@ -81,8 +81,9 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.tag == "Car")
         {
-            rb.AddForce(transform.up * crashForce);
-            rb.AddTorque(transform.forward * crashForce);
+            rb.AddExplosionForce(crashForce, transform.position, 1, crashForce); //The explosion will have its origin underneath the car so that it is thrown upwards.
+
+            rb.AddTorque(transform.right * crashForce); //If a frontal crash occurs, the car will spin on its nose.
 
             GameControl.GameOver();
 
